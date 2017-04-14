@@ -1,0 +1,55 @@
+			/*NavBar*/
+
+nav {
+
+}
+
+nav ul {
+border-top: 1px solid silver;
+background-color: black;
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+position: fixed;
+bottom: 0;
+width: 100%;
+animation: ani1 3s linear 2s infinite alternate;
+}
+
+@keyframes ani1 {
+from {border-top: 1px solid silver;}
+to {border-top: 1px solid red;}
+}
+
+nav ul li {
+border-right: 1px solid silver;
+display: inline-block;
+float: left;
+}
+
+nav ul li:last-child {
+border-right: none;
+float: right;
+}
+
+nav ul li a {
+padding: 14px 16px;
+text-decoration: none;
+color: silver;
+font-size: 1.2em;
+}
+
+nav ul li a:hover {
+  color: white;
+}
+
+@media all and (max-width: 600px) {
+nav ul li a {
+font-size: 1em;
+padding: 5px;
+}
+p {
+font-size: 1em;
+}
+}

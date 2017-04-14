@@ -5,8 +5,17 @@
     <script src="https://unpkg.com/vue"></script>
     <link rel="stylesheet" href="css/foundation.min.css">
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
 </head>
 <body>
+
+<h1>Monster Game</h1>
+
+<h3>A simple monster game created with Vue.js</h3>
+
 <div id="app">
     <section class="row">
         <div class="small-6 columns">
@@ -14,7 +23,7 @@
 
             <div class="healthbar">
                 <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;" :style="{width: playerHealth + '%'}">
-                    {{ playerHealth}}
+                    {{ playerHealth }}
                 </div>
             </div>
 
@@ -24,7 +33,7 @@
 
             <div class="healthbar">
                 <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;" :style="{width: monsterHealth + '%'}">
-                    {{ monsterHealth}}
+                    {{ monsterHealth }}
                 </div>
             </div>
 
@@ -47,15 +56,31 @@
         <div class="small-12 columns">
             <ul>
                 <li v-for="turn in turns"
-                    :class="{'player-turn': turn.isPlayer, 'monster-turn': !turn.isPlayer}"
-                >
-                    {{turn.text}}
+                    :class="{'player-turn': turn.isPlayer, 'monster-turn': !turn.isPlayer}">
+                    {{ turn.text }}
                 </li>
             </ul>
         </div>
     </section>
 </div>
+
+
+
+    <nav>
+	  <ul>
+	    <li><a href="../../../index.html">Home</a></li>
+	    <li><a href="../../resume/resume.html">Resume</a></li>
+	    <li><a href="../../portfolio/portfolio.html">Portfolio</a></li>
+	    <li><a href="../projects.html">Projects</a></li>
+	    <li><a href="../../about/about.html">About</a></li>
+
+      <!-- <li><a href="../../photography/photography.html">Photography</a></li> -->
+	  </ul>
+	</nav>
+
+
 <script src="app.js"></script>
+
 
 </body>
 </html>
