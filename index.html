@@ -5,9 +5,27 @@
     <script src="https://unpkg.com/vue"></script>
     <link rel="stylesheet" href="css/foundation.min.css">
     <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="css/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <style>
+      input[type='file'] {
+        display: none;
+      }
+      img {
+        margin: 5px;
+      }
+
+      #image:hover {
+        border: 1px solid blue;
+        cursor: pointer;
+      }
+      .back-button {
+          width: 100%; position: fixed; bottom: 0; left: 0; background-color: teal; color: white; margin: 0px;
+      }
+      .back-button:hover {
+          background-color: grey;
+      }
+    </style>
 
 </head>
 <body>
@@ -21,6 +39,16 @@
         <div class="small-6 columns">
             <h1 class="text-center">YOU</h1>
 
+            <div v-if="!image">
+              <label for="file-upload" class="file-upload"><img src="images/placeholder.png" style="max-height: 100px;" id="image" /></label>
+              <input id="file-upload" type="file" @change="onFileChange" />
+
+            </div>
+            <div v-else>
+              <img :src="image" style="max-height: 100px;" />
+              <!-- <button @click="removeImage" style="font-size: 16px; border: none; background-color: transparent; box-shadow: none;">Remove</button> -->
+            </div>
+
             <div class="healthbar">
                 <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;" :style="{width: playerHealth + '%'}">
                     {{ playerHealth }}
@@ -29,7 +57,9 @@
 
         </div>
         <div class="small-6 columns">
-            <h1 class="text-center">MONSTER</h1>
+            <h1 class="text-center">IT</h1>
+
+            <img src="images/monster.png" style="max-height: 100px;" />
 
             <div class="healthbar">
                 <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;" :style="{width: monsterHealth + '%'}">
@@ -41,7 +71,7 @@
     </section>
     <section class="row controls" v-if="!gameIsRunning">
         <div class="small-12 columns">
-            <button id="start-game" @click="startGame">START NEW GAME</button>
+            <button id="start-game" @click="startGame">NEW GAME</button>
         </div>
     </section>
     <section class="row controls" v-else>
@@ -64,20 +94,7 @@
     </section>
 </div>
 
-
-
-    <nav>
-	  <ul>
-	    <li><a href="../../../index.html">Home</a></li>
-	    <li><a href="../../resume/resume.html">Resume</a></li>
-	    <li><a href="../../portfolio/portfolio.html">Portfolio</a></li>
-	    <li><a href="../projects.html">Projects</a></li>
-	    <li><a href="../../about/about.html">About</a></li>
-
-      <!-- <li><a href="../../photography/photography.html">Photography</a></li> -->
-	  </ul>
-	</nav>
-
+<button class="back-button" onclick="window.close()">Close</button>
 
 <script src="app.js"></script>
 
